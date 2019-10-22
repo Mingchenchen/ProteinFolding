@@ -39,7 +39,7 @@ A sample output of the code following 10<sup>7</sup> iterations of the Metropoli
 
 ## Credits
 
-This repository was inspired by a systems biology coursework from the final year of my bachelor's studies in biotechnology, majoring in computational biology. During this course, I learnt programming from scratch and, as a rookie, I was not able to solve this problem at all back then. The lecturer of this course was [Prof. Robert Endres](https://rgendres3.wixsite.com/biologicalphysics).
+This repository was inspired by a systems biology coursework from the final year of my bachelor's studies in biotechnology, majoring in computational biology. During this course, I learnt programming from scratch and, as a rookie, I was not able to perform this simulation at all back then. The lecturer of this course was [Prof. Robert Endres](https://rgendres3.wixsite.com/biologicalphysics).
 
 The image of the test polypeptide was taken from a paper by Ned Wingreen's group. The full reference of this paper is:
 * Li, H., Helling, R., Tang, C., & Wingreen, N. (1996). Emergence of Preferred Structures in a Simple Model of Protein Folding. Science, 273(5275), 666–669.
