@@ -1,8 +1,7 @@
 ## Introduction
 
-A protein can be simplified to a string of beads, which either correspond to a hydrophobic (H) or a polar (P) amino acid residue. Any pair of beads can interact by a [Lennard-Jones potential](https://en.wikipedia.org/wiki/Lennard-Jones_potential) ![equation](http://www.sciweavers.org/tex2img.php?eq=V%28r%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) given by:
+A protein can be simplified to a string of beads, which either correspond to a hydrophobic (H) or a polar (P) amino acid residue. Any pair of beads can interact by a [Lennard-Jones potential](https://en.wikipedia.org/wiki/Lennard-Jones_potential) V(r) given by:
 
-![equation](http://www.sciweavers.org/tex2img.php?eq=V%28r%29%3D%20%5Cvarepsilon%20%28r%5E%7B-12%7D%20-%202r%5E%7B-6%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0)
+<center>V(r) = e[r<sup>-12</sup>-2r<sup>-6</sup>]</center>
 
-where ![equation](http://www.sciweavers.org/tex2img.php?eq=r&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) is the normalised distance between the two beads. Let:
-* ![equation](http://www.sciweavers.org/tex2img.php?eq=%20%5Cvarepsilon%20%3D%20E_%7BHH%7D%20%3D%20-2.3&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0) if both beads are of type H.
+where
