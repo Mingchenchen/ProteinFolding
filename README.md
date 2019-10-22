@@ -27,7 +27,9 @@ where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is 
 
 To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long):
 
-![alt text](https://github.com/liweiyap/ProteinFolding/blob/master/test_polypeptide.png)
+<p align="center">
+  <img width="300" height="300" src="https://github.com/liweiyap/ProteinFolding/blob/master/test_polypeptide.png">
+</p>
 
 A sample output of the code following 10<sup>7</sup> iterations of the Metropolis algorithm is shown [here](https://github.com/liweiyap/ProteinFolding/blob/master/sample_output_with_ten_million_steps.png). The computational time taken was 145 seconds. In a folded protein, one would expect the hydrophobic residues (in red) to be shielded from the aqueous environment by the polar residues (in blue). However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions.
 
