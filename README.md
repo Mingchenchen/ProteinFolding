@@ -15,7 +15,11 @@ By summing up the Lennard-Jones potential of all pairs of beads, we can calculat
 
 ## Why is protein folding considered an unsolved problem in biology?
 
+In 1969, [Craig Levinthal](https://en.wikipedia.org/wiki/Levinthal%27s_paradox) noted that, because of the very large number of degrees of freedom in an unfolded polypeptide chain, the molecule has an astronomical number of possible conformations. Assuming that there are 3 possible conformations per residue, for a polypeptide 100 residues long (and thus with 198 phi and psi bond angles), there would be 3<sup>198</sup> possible structures that the polypeptide can fold into. However, all except just one of these structures is the wrong one, i.e. a mutant with a defective function. If a protein were to randomly explore all its possible conformations during folding, it would require a time longer than the age of the universe to arrive at its correct native structure. Since most proteins fold spontaneously on a time-scale of micro- to milliseconds, we could thus infer that protein folding is not random.
 
+Later on, the [landscape theory](https://en.wikipedia.org/wiki/Folding_funnel) was proposed. This theory states that protein folding is mediated by an energy landscape that directs/funnels the multiple unfolded conformations along a specific folding pathway towards the native structure (global minimum). This funneling is accompanied by sharp increases in the conformational stability (or decreases in Gibbs free energy) of the protein, e.g. via the [hydrophobic effect](https://en.wikipedia.org/wiki/Hydrophobic_effect). In addition, the energy landscape can have local minimi in which partially folded prot can be trapped.
+
+To truly understand how protein folding can take place so spontaneously, we require in-depth [Molecular Dynamics (MD)](https://en.wikipedia.org/wiki/Molecular_dynamics) studies. However, their effectiveness is limited by their large computational cost. Therefore, it is not easy to predict the final folded structure of a random polypeptide. In fact, in computer science, protein folding is considered an [NP-hard](https://ieeexplore.ieee.org/document/6965037) problem; once given the native structure of the protein, one could verify it in polynomial time. Coming up with this solution, on the other hand, takes longer and is more difficult/challenging. If we can more clearly understand protein folding, we could be better equipped to tackle diseases caused by misfolded proteins. These include neurodegenerative disorders like Alzheimer's.
 
 ## Methods
 
@@ -25,10 +29,10 @@ The code for simulating simulate protein folding in 2-D is found in [`prot_foldi
 
 where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is the initial energy before the trial move. T is the temperature. To simplify our model, we initialise T as 1, and consider only the bead that moves when calculating the energy change during a trial move. The number of trial moves, i.e. the number of iterations of the Metropolis algorithm, is user-defined.
 
-To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long):
+To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
 
 <p align="center">
-  <img width="300" height="300" src="https://github.com/liweiyap/ProteinFolding/blob/master/test_polypeptide.png">
+  <img width="200" height="200" src="https://github.com/liweiyap/ProteinFolding/blob/master/test_polypeptide.png">
 </p>
 
 A sample output of the code following 10<sup>7</sup> iterations of the Metropolis algorithm is shown [here](https://github.com/liweiyap/ProteinFolding/blob/master/sample_output_with_ten_million_steps.png). The computational time taken was 145 seconds. In a folded protein, one would expect the hydrophobic residues (in red) to be shielded from the aqueous environment by the polar residues (in blue). However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions.
