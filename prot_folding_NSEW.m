@@ -1,14 +1,3 @@
-% Author: Li-Wei Yap
-% Date: 16 October 2018
-
-% to be solved: only one image produced when trying to run multiple protein
-% folding sequences concurrently with parfor. Then, I tried adding folding_seq as
-% an additional input parameter for the function fold_protein,
-% replacing figure with figure(folding_seq), and adding
-% saveas(gcf,['prot' num2str(i) '.png']). But sequences end up getting
-% printed on the wrong image - perhaps because some sequences finish
-% earlier than others? Is there a 'wait' function for parfor?
-
 clear all;  % just a precaution
 
 % re-express the given polypeptide in question as a string of beads
