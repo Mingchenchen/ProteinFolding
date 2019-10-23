@@ -23,6 +23,11 @@ To truly understand how protein folding can take place so spontaneously, we requ
 
 ## Methods
 
+To create a local copy of this repository, simply click 'Download'. Alternatively, clone it by first navigating to the path you want to store the local copy and then executing the following on the command line:
+```
+git clone git@github.com:liweiyap/ProteinFolding.git
+```
+
 The code for simulating simulate protein folding in 2-D is found in [`prot_folding_NSEW.m`](https://github.com/liweiyap/ProteinFolding/blob/master/prot_folding_NSEW.m). We implemented the Metropolis algorithm, which accepts a trial move (small change in the position of a randomly chosen bead in the x-y plane) with a probability:
 
 <p align="center">p('accept') = min{1, exp(-(E<sub>f</sub>-E<sub>i</sub>)/T)}</p>
