@@ -4,7 +4,7 @@ A protein can be simplified to a string of beads, which either correspond to a h
 
 <p align="center">V(r) = e[r<sup>-12</sup>-2r<sup>-6</sup>]</p>
 
-where r is the distance between the two beads. Assuming both beads are not direct neighbours in the primary structure, we let:
+where r is the **normalised** distance between the two beads. Assuming both beads are not direct neighbours in the primary structure, we let:
 * e = E<sup>HH</sup> = -2.3 if both beads are of type H.
 * e = E<sup>HP</sup> = -1 if both beads are of different types.
 * e = E<sup>PP</sup> = 0 if both beads are of type P.
