@@ -37,7 +37,7 @@ where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is 
 To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
 
 <p align="center">
-  <img width="200" height="200" src="https://github.com/liweiyap/ProteinFolding/blob/master/test_polypeptide.png">
+  <img width="200" height="200" src="test_polypeptide.png">
 </p>
 
 A sample output of the code following 10<sup>7</sup> iterations of the Metropolis algorithm is shown [here](https://github.com/liweiyap/ProteinFolding/blob/master/sample_output_with_ten_million_steps.png). The computational time taken was 145 seconds. In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
