@@ -1,5 +1,7 @@
 clear all;  % just a precaution
 
+addpath('include')
+
 % re-express the given polypeptide in question as a string of beads
 % let 0 be P residue and let 1 be H residue
 prot = [0, 0, 1, 0, 1, 1, ...
@@ -10,7 +12,7 @@ prot = [0, 0, 1, 0, 1, 1, ...
         0, 0, 1, 1, 0, 1];
 
 % define total no. of iterations of Metropolis algorithm
-maxiter = 10^7;  % takes about 150 seconds (2.5 minutes) with 10^7 iterations
+maxiter = 10^5;  % takes about 150 seconds (2.5 minutes) with 10^7 iterations
 
 % run protein folding
 tic
@@ -182,23 +184,4 @@ function fold_protein(prot, maxiter)
     xlabel('No. of Iterations'); ylabel('Energy');
     set(gca, 'FontSize', 15);
 %     saveas(gcf,['temp' num2str(folding_seq) '.jpg']);
-end
-
-function eps = determine_eps(prot, trial_pos, pos)
-    % define possible values for eps
-    E_HH = -2.3;
-    E_HP = -1;
-    E_PP = 0;
-    E_NN = -10;
-    
-    % determine value of eps to be used for each pair of residues
-    if pos == trial_pos - 1 || pos == trial_pos + 1
-        eps = E_NN;
-    elseif prot(pos) == 1 && prot(trial_pos) == 1
-        eps = E_HH;
-    elseif prot(pos) == 0 && prot(trial_pos) == 0
-        eps = E_PP;
-    elseif prot(pos) ~= prot(trial_pos)
-        eps = E_HP;
-    end
 end
