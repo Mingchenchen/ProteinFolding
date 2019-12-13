@@ -28,7 +28,7 @@ To create a local copy of this repository, simply click 'Download'. Alternativel
 git clone git@github.com:liweiyap/ProteinFolding.git
 ```
 
-The code for simulating simulate protein folding in 2-D is found in [`prot_folding_NSEW.m`](https://github.com/liweiyap/ProteinFolding/blob/master/prot_folding_NSEW.m). We implemented the Metropolis algorithm, which accepts a trial move (small change in the position of a randomly chosen bead in the x-y plane) with a probability:
+The main program in [`main.m`](https://github.com/liweiyap/ProteinFolding/blob/master/main.m) calls the helper function in [`fold.m`](https://github.com/liweiyap/ProteinFolding/blob/master/include/fold.m), which simulates protein folding in 2-D. We implemented the [Metropolis algorithm](https://github.com/liweiyap/ProteinFolding/blob/master/include/metropolis.m), which accepts a trial move (small change in the position of a randomly chosen bead in the x-y plane) with a probability:
 
 <p align="center">p('accept') = min{1, exp(-(E<sub>f</sub>-E<sub>i</sub>)/T)}</p>
 
@@ -46,7 +46,7 @@ A sample output of the code following 10<sup>7</sup> iterations of the Metropoli
   <img height="450" src="sample_output_with_ten_million_steps.png">
 </p>
 
-The computational time taken was 145 seconds. In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
+The computational time taken was <300 seconds (a previous non-refactored version of the code ran in half this time). In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
 
 ## Credits
 
