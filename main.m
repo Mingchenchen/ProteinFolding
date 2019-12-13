@@ -13,7 +13,7 @@ yvals = zeros(1, length(hydrophobicity));  % initial y-values of every residue i
 
 % folding variables
 temperature = 1;                           % temperature
-maxiter = 10^5;                            % total no. of iterations of Metropolis algorithm
+maxiter = 10^7;                            % total no. of iterations of Metropolis algorithm
 energyArray = zeros(1, maxiter+1);         % energy at the end of all trial moves
 
 % start the timer: takes <300 seconds (<5 minutes) with 10^7 iterations
