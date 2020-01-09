@@ -22,7 +22,7 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
     
     for iter = 1:maxiter
         % randomly select a bead/residue
-        trial_pos = randi(36);
+        trial_pos = randi(length(hydrophobicity));
         
         % randomly select a direction
         % let 1 be N, 2 be S, 3 be E, 4 be W

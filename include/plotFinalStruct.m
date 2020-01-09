@@ -26,8 +26,8 @@ function plotFinalStruct(hydrophobicity, xvals, yvals, plotIdx)
             text(xvals(pos), yvals(pos), num2str(pos_idx(pos)));
         end
     end
-    xlim([xvals(length(hydrophobicity)/2)-length(hydrophobicity)/2 xvals(length(hydrophobicity)/2)+length(hydrophobicity)/2]);
-    ylim([yvals(length(hydrophobicity)/2)-length(hydrophobicity)/2 yvals(length(hydrophobicity)/2)+length(hydrophobicity)/2]);
+    xlim([xvals(round(length(hydrophobicity)/2))-round(length(hydrophobicity)/2) xvals(round(length(hydrophobicity)/2))+round(length(hydrophobicity)/2)]);
+    ylim([yvals(round(length(hydrophobicity)/2))-round(length(hydrophobicity)/2) yvals(round(length(hydrophobicity)/2))+round(length(hydrophobicity)/2)]);
     axis equal;
     legend('polar residue', 'hydrophobic residue');
     title('Final Protein State');
