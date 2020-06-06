@@ -34,7 +34,7 @@ The main program in [`main.m`](https://github.com/liweiyap/ProteinFolding/blob/m
 
 where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is the initial energy before the trial move. T is the temperature. To simplify our model, we initialise T as 1, and consider only the bead that moves when calculating the energy change during a trial move. The number of trial moves, i.e. the number of iterations of the Metropolis algorithm, is user-defined.
 
-The code was written using Matlab **version R2016b**. To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
+The code was written using Matlab **version R2016b** and tested on **Mac OS 10.15.5**. To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
 
 <p align="center">
   <img width="200" height="200" src="assets/test_polypeptide.png">
@@ -46,7 +46,7 @@ A sample output of the code following 10<sup>7</sup> iterations of the Metropoli
   <img height="450" src="assets/sample_output_with_ten_million_steps.png">
 </p>
 
-The computational time taken was <300 seconds (a previous [non-refactored version](https://github.com/liweiyap/ProteinFolding/commit/f33224a6db8b154e2d7d6c9c152a35ca4c7c1fde) of the code ran in half this time). In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. A likelier explanation is that, since the Metropolis algorithm is probabilistic, the polypeptide might already be in the process of being funneled towards a local rather than a global minimum.
+The computational time taken was about 210 seconds (a previous [non-refactored version](https://github.com/liweiyap/ProteinFolding/commit/f33224a6db8b154e2d7d6c9c152a35ca4c7c1fde) of the code ran in two-thirds of this duration). In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. A likelier explanation is that, since the Metropolis algorithm is probabilistic, the polypeptide might already be in the process of being funneled towards a local rather than a global minimum.
 
 On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
 

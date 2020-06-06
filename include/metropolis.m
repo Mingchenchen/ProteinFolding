@@ -16,8 +16,7 @@ function [xvals, yvals] = metropolis(xvals, yvals, energyBefore, energyAfter, tr
     helper_exponent = exp( -(energyAfter - energyBefore)/temperature );
     if helper_exponent < 1
         if rand > helper_exponent
-            xvals(trial_pos) = xvals(trial_pos) - x_moved;
-            yvals(trial_pos) = yvals(trial_pos) - y_moved;
+            reverseMove(xvals, yvals, trial_pos, x_moved, y_moved);
         end
     end
 end

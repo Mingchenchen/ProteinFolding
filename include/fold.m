@@ -15,34 +15,9 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
     energyBefore = 0;  % energy before a given trial move
     energyAfter = 0;   % energy after a given trial move
     
-    figure;
-    subplot(2, 2, 1); hold on;
-    plotInitialStruct(hydrophobicity, xvals, yvals);
-    hold off;
-    
-    NORTH = 1;
-    SOUTH = 2;
-    EAST = 3;
-    WEST = 4;
-    
     for iter = 1:maxiter
         % randomly select a bead/residue
         trial_pos = randi(length(hydrophobicity));
-        
-        % randomly select a direction
-        % let 1 be N, 2 be S, 3 be E, 4 be W
-        direction = randi(4);
-        
-        % define distance for moving in terms of x- and y-axes
-        if direction == NORTH
-            x_moved = 0; y_moved = 1;
-        elseif direction == SOUTH
-            x_moved = 0; y_moved = -1;
-        elseif direction == EAST
-            x_moved = 1; y_moved = 0;
-        elseif direction == WEST
-            x_moved = -1; y_moved = 0;
-        end
         
         % calculate energyBefore for whole polypeptide
         % simplification: consider only part that changes, i.e. trial_pos
@@ -58,7 +33,8 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
             energyArray(iter) = energyBefore;
         end
         
-        % move selected residue
+        % randomly select a direction in which to move the residue towards
+        [x_moved, y_moved] = getDistancesToBeMoved();
         [xvals, yvals] = move(xvals, yvals, trial_pos, x_moved, y_moved);
         
         % calculate energyAfter for whole polypeptide
@@ -86,11 +62,4 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
         % update energy array for all iterations
         energyArray(iter + 1) = energyAfter;
     end
-    
-    subplot(2, 2, 2); hold on;
-    plotFinalStruct(hydrophobicity, xvals, yvals, false);
-    hold off;
-    
-    subplot(2, 2, [3, 4]);
-    plotEnergy(energyArray, maxiter);
 end
