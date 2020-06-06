@@ -20,6 +20,11 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
     plotInitialStruct(hydrophobicity, xvals, yvals);
     hold off;
     
+    NORTH = 1;
+    SOUTH = 2;
+    EAST = 3;
+    WEST = 4;
+    
     for iter = 1:maxiter
         % randomly select a bead/residue
         trial_pos = randi(length(hydrophobicity));
@@ -29,13 +34,13 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
         direction = randi(4);
         
         % define distance for moving in terms of x- and y-axes
-        if direction == 1
+        if direction == NORTH
             x_moved = 0; y_moved = 1;
-        elseif direction == 2
+        elseif direction == SOUTH
             x_moved = 0; y_moved = -1;
-        elseif direction == 3
+        elseif direction == EAST
             x_moved = 1; y_moved = 0;
-        elseif direction == 4
+        elseif direction == WEST
             x_moved = -1; y_moved = 0;
         end
         

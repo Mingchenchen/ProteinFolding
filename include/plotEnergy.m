@@ -5,7 +5,7 @@ IN:  vector representing energy at all iterations of the Metropolis algorithm;
      total number of iterations of Metropolis algorithm.
 %}
 function plotEnergy(energyArray, maxiter)
-    plot(energyArray);
+    plot(energyArray, 'LineWidth', 3);
     set(gca, 'XScale', 'log');
     set(gca, 'YScale', 'log');
     xlim([0 maxiter]);

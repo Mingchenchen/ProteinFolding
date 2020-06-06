@@ -25,7 +25,7 @@ To truly understand how protein folding can take place so spontaneously, we requ
 
 To create a local copy of this repository, simply click 'Download'. Alternatively, clone it by first navigating to the path you want to store the local copy and then executing the following on the command line:
 ```
-git clone git@github.com:liweiyap/ProteinFolding.git
+git clone https://github.com/liweiyap/ProteinFolding.git
 ```
 
 The main program in [`main.m`](https://github.com/liweiyap/ProteinFolding/blob/master/main.m) calls the helper function in [`include/fold.m`](https://github.com/liweiyap/ProteinFolding/blob/master/include/fold.m), which simulates protein folding in 2-D. We implemented the [Metropolis algorithm](https://github.com/liweiyap/ProteinFolding/blob/master/include/metropolis.m), which accepts a trial move (small change in the position of a randomly chosen bead in the x-y plane) with a probability:
@@ -34,16 +34,16 @@ The main program in [`main.m`](https://github.com/liweiyap/ProteinFolding/blob/m
 
 where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is the initial energy before the trial move. T is the temperature. To simplify our model, we initialise T as 1, and consider only the bead that moves when calculating the energy change during a trial move. The number of trial moves, i.e. the number of iterations of the Metropolis algorithm, is user-defined.
 
-To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
+The code was written using Matlab **version R2016b**. To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
 
 <p align="center">
-  <img width="200" height="200" src="test_polypeptide.png">
+  <img width="200" height="200" src="assets/test_polypeptide.png">
 </p>
 
 A sample output of the code following 10<sup>7</sup> iterations of the Metropolis algorithm is shown here:
 
 <p align="center">
-  <img height="450" src="sample_output_with_ten_million_steps.png">
+  <img height="450" src="assets/sample_output_with_ten_million_steps.png">
 </p>
 
 The computational time taken was <300 seconds (a previous [non-refactored version](https://github.com/liweiyap/ProteinFolding/commit/d70dad#diff-8e4eefd2147cccf00633cf279453331a) of the code ran in half this time). In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. A likelier explanation is that, since the Metropolis algorithm is probabilistic, the polypeptide might already be in the process of being funneled towards a local rather than a global minimum.
