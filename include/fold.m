@@ -46,6 +46,8 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
                     [xvals, yvals] = reverseMove(xvals, yvals, trial_pos, x_moved, y_moved);
                     energyAfter = energyBefore;
                     continue;
+                    % exits only immediate FOR loop, but the rest of the current iter is essentially O(1).
+                    % since energyBefore == energyAfter, reverseMove() will not be triggered again in metropolis().
                 end
                 
                 % energy is sum of Lennard-Jones potential of all pairs of residues
