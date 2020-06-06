@@ -54,6 +54,12 @@ In a folded protein, one would expect the H residues to be shielded from the aqu
 
 On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
 
+Below is another sample output following 10<sup>8</sup> iterations of the Metropolis algorithm:
+
+<p align="center">
+  <img height="450" src="assets/sample_output_with_hundred_million_steps.png">
+</p>
+
 ## Credits
 
 This repository was inspired by a systems biology coursework from the final year of my bachelor's studies in biotechnology, majoring in computational biology. During this course, I learnt programming from scratch and, as a rookie, I was not able to perform this simulation at all back then. The lecturer of this course was [Prof. Robert Endres](https://rgendres3.wixsite.com/biologicalphysics).
