@@ -40,6 +40,8 @@ The code was written using Matlab **version R2016b** and tested on **Mac OS 10.1
   <img width="200" height="200" src="assets/test_polypeptide.png">
 </p>
 
+## Results
+
 A sample output of the code following 10<sup>7</sup> iterations of the Metropolis algorithm is shown here:
 
 <p align="center">
