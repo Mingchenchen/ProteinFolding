@@ -32,7 +32,7 @@ The main program in [`main.m`](https://github.com/liweiyap/ProteinFolding/blob/m
 
 <p align="center">p('accept') = min{1, exp(-(E<sub>f</sub>-E<sub>i</sub>)/T)}</p>
 
-where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is the initial energy before the trial move. T is the temperature. To simplify our model, we initialise T as 1, and consider only the bead that moves when calculating the energy change during a trial move. The number of trial moves, i.e. the number of iterations of the Metropolis algorithm, is user-defined.
+where E<sub>f</sub> is the new energy after the trial move and E<sub>i</sub> is the initial energy before the trial move. T is the temperature. To simplify our model, we initialise T as 1, and consider only the bead that moves when calculating the energy change during a trial move. The number of trial moves, i.e. the number of iterations of the helper function in [`include/fold.m`](https://github.com/liweiyap/ProteinFolding/blob/master/include/fold.m), is user-defined.
 
 The code was written using Matlab **version R2016b** and tested on **Mac OS 10.15.5**. To test our code, we used the following 36-residue long polypeptide [(Li et al., 1996)](https://science.sciencemag.org/content/273/5275/666.long), where the dark and light grey residues are H and P respectively:
 
@@ -42,23 +42,15 @@ The code was written using Matlab **version R2016b** and tested on **Mac OS 10.1
 
 ## Results
 
-A sample output of the code following 10<sup>7</sup> iterations of the Metropolis algorithm is shown here:
-
-<p align="center">
-  <img height="450" src="assets/sample_output_with_ten_million_steps.png">
-</p>
-
-The computational time taken for a single folding sequence was about 210 seconds. Multiple folding sequences can be run concurrently on the same polypeptide, thus reducing the combined computational time, e.g. the combined computational time taken for two concurrent folding sequences was about 240 seconds.
-
-In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. A likelier explanation is that, since the Metropolis algorithm is probabilistic, the polypeptide might already be in the process of being funneled towards a local rather than a global minimum.
-
-On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
-
-Below is another sample output following 10<sup>8</sup> iterations of the Metropolis algorithm:
+Multiple folding sequences can be run concurrently on the same polypeptide, thus reducing the combined computational time, e.g. the combined computational time taken for two concurrent folding sequences was about 25 minutes for 10<sup>8</sup> iterations of the folding function. The output from a sample folding sequence is shown here:
 
 <p align="center">
   <img height="450" src="assets/sample_output_with_hundred_million_steps.png">
 </p>
+
+In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. A likelier explanation is that, since the Metropolis algorithm is probabilistic, the polypeptide might already be in the process of being funneled towards a local rather than a global minimum.
+
+On the other hand, hydrophobic patches have been reported to exist on the external surface of proteins and might even have important biological functions, e.g. for protein-protein interactions in the formation of large molecular complexes for intracellular signalling. In any case, in our sample output, we do already see non-neighbouring residues of the same type clustering together to aid the folding of the polypeptide; this clustering is made possible because it is energetically favourable.
 
 ## Credits
 

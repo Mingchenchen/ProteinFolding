@@ -45,9 +45,7 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
                 if hasStericClash
                     [xvals, yvals] = reverseMove(xvals, yvals, trial_pos, x_moved, y_moved);
                     energyAfter = energyBefore;
-                    continue;
-                    % exits only immediate FOR loop, but the rest of the current iter is essentially O(1).
-                    % since energyBefore == energyAfter, reverseMove() will not be triggered again in metropolis().
+                    break;  % exits only immediate FOR loop
                 end
                 
                 % energy is sum of Lennard-Jones potential of all pairs of residues
@@ -56,10 +54,12 @@ function [xvals, yvals, energyArray] = fold(hydrophobicity, xvals, yvals, energy
             end
         end
         
-        [xvals, yvals] = metropolis(xvals, yvals, energyBefore, energyAfter, trial_pos, x_moved, y_moved, temperature);
-        
-        % save energyAfter as energyBefore for next iteration
-        energyBefore = energyAfter;
+        if ~hasStericClash
+            [xvals, yvals] = metropolis(xvals, yvals, energyBefore, energyAfter, trial_pos, x_moved, y_moved, temperature);
+            
+            % save energyAfter as energyBefore for next iteration
+            energyBefore = energyAfter;
+        end
         
         % update energy array for all iterations
         energyArray(iter + 1) = energyAfter;
