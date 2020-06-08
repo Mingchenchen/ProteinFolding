@@ -7,10 +7,10 @@ OUT: value of \eps (coefficient in formula).
 %}
 function coefficient = determineCoefficient(hydrophobicity, trial_pos, pos)
     % define possible values for eps
-    E_HH = -2.3;
-    E_HP = -1;
+    E_HH = 2.3;
+    E_HP = 1;
     E_PP = 0;
-    E_NN = -10;
+    E_NN = 10;
     
     % determine value of eps to be used for each pair of residues
     if pos == trial_pos - 1 || pos == trial_pos + 1

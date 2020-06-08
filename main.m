@@ -3,7 +3,7 @@ addpath('include');
 
 % folding variables
 temperature = 1;      % temperature
-maxiter = 10^8;       % total no. of iterations of Metropolis algorithm
+maxiter = 10^7;       % total no. of iterations of Metropolis algorithm
 max_folding_seq = 2;  % no. of folding sequences to be concurrently run on the same starting polypeptide
 
 % protein variables
@@ -20,7 +20,7 @@ end
 yvals = zeros(max_folding_seq, length(hydrophobicity));  % initial y-values of every residue in polypeptide
 energyArray = zeros(max_folding_seq, maxiter+1);         % energy at the end of all trial moves
 
-% start the timer: takes about 1500 seconds (25 minutes) with 10^8 iterations for 2 parallel folding_seq
+% start the timer: takes <180 seconds (<3 minutes) with 10^7 iterations for 2 parallel folding_seq
 tic;
 parfor folding_seq = 1:max_folding_seq
     [xvals(folding_seq,:), yvals(folding_seq,:), energyArray(folding_seq,:)] = fold(hydrophobicity, xvals(folding_seq,:), yvals(folding_seq,:), energyArray(folding_seq,:), temperature, maxiter);

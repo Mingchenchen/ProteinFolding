@@ -5,11 +5,11 @@ A protein can be simplified to a string of beads, which either correspond to a h
 <p align="center">V(r) = e[r<sup>-12</sup>-2r<sup>-6</sup>]</p>
 
 where r is the **normalised** distance between the two beads. Assuming both beads are not direct neighbours in the primary structure, we let:
-* e = E<sup>HH</sup> = -2.3 if both beads are of type H.
-* e = E<sup>HP</sup> = -1 if both beads are of different types.
+* e = E<sup>HH</sup> = 2.3 if both beads are of type H.
+* e = E<sup>HP</sup> = 1 if both beads are of different types.
 * e = E<sup>PP</sup> = 0 if both beads are of type P.
 
-Otherwise, if they are direct neighbours, we let e = E<sup>NN</sup> = -10 independent of type.
+Otherwise, if they are direct neighbours, we let e = E<sup>NN</sup> = 10 independent of type.
 
 By summing up the Lennard-Jones potential of all pairs of beads, we can calculate the difference in the energy before and after a given folding sequence. This allows us to show that protein folding is driven by a decrease in energy (a.k.a. a release of energy to the surrounding environment).
 
@@ -42,10 +42,10 @@ The code was written using Matlab **version R2016b** and tested on **Mac OS 10.1
 
 ## Results
 
-Multiple folding sequences can be run concurrently on the same polypeptide, thus reducing the combined computational time, e.g. the combined computational time taken for two concurrent folding sequences was about 25 minutes for 10<sup>8</sup> iterations of the folding function. The output from a sample folding sequence is shown here:
+Multiple folding sequences can be run concurrently on the same polypeptide, thus reducing the combined computational time, e.g. the combined computational time taken for two concurrent folding sequences was slightly under 3 minutes for 10<sup>7</sup> iterations of the folding function. The output from a sample folding sequence is shown here:
 
 <p align="center">
-  <img height="450" src="assets/sample_output_with_hundred_million_steps.png">
+  <img height="450" src="assets/sample_output_with_ten_million_steps.png">
 </p>
 
 In a folded protein, one would expect the H residues to be shielded from the aqueous environment by the P residues. However, it is possible that we do not get such a perfect folding because our polypeptide in question is only 36 residues long. A likelier explanation is that, since the Metropolis algorithm is probabilistic, the polypeptide might already be in the process of being funneled towards a local rather than a global minimum.

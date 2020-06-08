@@ -14,5 +14,5 @@ function potential = calculateEnergyChange(hydrophobicity, xvals, yvals, trial_p
     interResidualDistance = sqrt( (xvals(pos) - xvals(trial_pos)) ^ 2 + ...
                                   (yvals(pos) - yvals(trial_pos)) ^ 2 );  % r
     
-    potential = coefficient * (interResidualDistance^(-12) + 2 * interResidualDistance^(-6));  % V
+    potential = coefficient * (interResidualDistance^(-12) - 2 * interResidualDistance^(-6));  % V
 end
